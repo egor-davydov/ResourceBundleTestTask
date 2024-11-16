@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66dbed7bcc5a4a3c84504ba9af0ed8f2, type: 3}
+  m_Name: Items
+  m_EditorClassIdentifier: 
+  <ItemConfigs>k__BackingField:
+  - <Name>k__BackingField: wood
+    <Icon>k__BackingField: {fileID: 21300000, guid: 588070aa4e6f63c429defcbccb6ece45, type: 3}
+  - <Name>k__BackingField: stone
+    <Icon>k__BackingField: {fileID: 21300000, guid: 0b5e1f98a680c8d4a8f40e07e1819dec, type: 3}
+  - <Name>k__BackingField: rope
+    <Icon>k__BackingField: {fileID: 21300000, guid: a1237d9f27424a34f84bd2b2819d78ce, type: 3}

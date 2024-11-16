@@ -366,6 +366,7 @@ MonoBehaviour:
   _title: {fileID: 1345603929315818314}
   _description: {fileID: 1345603927719201515}
   _itemsContainer: {fileID: 1345603927863154197}
+  _iconImage: {fileID: 1345603928649560523}
   _withoutDiscountObject: {fileID: 1345603929087868411}
   _withDiscountObject: {fileID: 1345603927544297174}
   _priceWithoutDiscount: {fileID: 1345603929087868413}

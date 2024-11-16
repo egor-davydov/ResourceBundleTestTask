@@ -20,7 +20,13 @@ MonoBehaviour:
       \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u043D\u0430 \u043F\u043B\u043E\u0442
       \u0432\u0441\u0435 \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u044B\u0435
       \u043F\u043E\u0441\u0442\u0440\u043E\u0439\u043A\u0438"
-    <ItemConfigs>k__BackingField: []
-    <Price>k__BackingField: 3.33
-    <DiscountPercent>k__BackingField: 10
-    <BundleIconName>k__BackingField: 
+    <Items>k__BackingField:
+    - <Name>k__BackingField: wood
+      <Quantity>k__BackingField: 40
+    - <Name>k__BackingField: rope
+      <Quantity>k__BackingField: 40
+    - <Name>k__BackingField: stone
+      <Quantity>k__BackingField: 40
+    <Price>k__BackingField: 6
+    <DiscountPercent>k__BackingField: 34
+    <BundleIconName>k__BackingField: start

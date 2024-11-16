@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code.StaticData
+namespace Code.StaticData.ResourceBundle
 {
   [CreateAssetMenu(fileName = "ResourceBundles", menuName = "StaticData/ResourceBundles", order = 0)]
   public class ResourceBundlesStaticData : ScriptableObject

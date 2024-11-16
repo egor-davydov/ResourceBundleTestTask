@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Globalization;
-using Code.Helpers;
-using Code.StaticData;
+using Code.StaticData.Item;
+using Code.StaticData.ResourceBundle;
 using Code.UI.Services.Factories;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Code.UI.Elements
 {
@@ -13,6 +14,7 @@ namespace Code.UI.Elements
     [SerializeField] private TextMeshProUGUI _title;
     [SerializeField] private TextMeshProUGUI _description;
     [SerializeField] private Transform _itemsContainer;
+    [SerializeField] private Image _iconImage;
     [SerializeField] private GameObject _withoutDiscountObject;
     [SerializeField] private GameObject _withDiscountObject;
     [SerializeField] private TextMeshProUGUI _priceWithoutDiscount;
@@ -27,13 +29,24 @@ namespace Code.UI.Elements
       _uiFactory = uiFactory;
     }
 
-    public void Initialize(ResourceBundleConfig config)
+    public void Initialize(ResourceBundleConfig config, Sprite icon)
     {
       _title.text = config.TitleText;
       _description.text = config.DescriptionText;
+      SetupItems(config.Items);
+      SetupIcon(icon);
       SetupPrice(config.Price, config.DiscountPercent);
-      foreach (ItemConfig itemConfig in config.ItemConfigs) 
-        _uiFactory.CreateItem(itemConfig, _itemsContainer);
+    }
+
+    private void SetupItems(ItemData[] items)
+    {
+      foreach (ItemData itemData in items)
+        _uiFactory.CreateItem(itemData, _itemsContainer);
+    }
+
+    private void SetupIcon(Sprite icon)
+    {
+      _iconImage.sprite = icon;
     }
 
     private void SetupPrice(float price, int discountPercent)
@@ -50,9 +63,16 @@ namespace Code.UI.Elements
         _discount.text = $"-{discountPercent}%";
         
         _priceBeforeDiscount.text = priceText;
-        float priceWithDiscount = MathHelper.RoundDown(price - price / 100 * discountPercent, 2);
+        var priceWithDiscount = CalculatePriceWithDiscount(price, discountPercent);
         _priceAfterDiscount.text = GetPriceText(priceWithDiscount);
       }
+    }
+
+    private float CalculatePriceWithDiscount(float price, int discountPercent)
+    {
+      var priceWithDiscount = (float)Math.Round(price - price / 100 * discountPercent, 1);
+      priceWithDiscount -= 0.01f;
+      return priceWithDiscount;
     }
 
     private string GetPriceText(float price) =>
