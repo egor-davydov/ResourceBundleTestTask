@@ -313,6 +313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1345603927735261747}
   - component: {fileID: 1345603927735261749}
+  - component: {fileID: 6581342923091490455}
   m_Layer: 5
   m_Name: RecourceBundleWindow
   m_TagString: Untagged
@@ -350,6 +351,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345603927735261744}
   m_CullTransparentMesh: 1
+--- !u!114 &6581342923091490455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345603927735261744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13cc3ce03a1d4985808fd9947a2c7c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _title: {fileID: 1345603929315818314}
+  _description: {fileID: 1345603927719201515}
+  _itemsContainer: {fileID: 1345603927863154197}
+  _withoutDiscountObject: {fileID: 1345603929087868411}
+  _withDiscountObject: {fileID: 1345603927544297174}
+  _priceWithoutDiscount: {fileID: 1345603929087868413}
+  _discount: {fileID: 1345603929281026426}
+  _priceBeforeDiscount: {fileID: 1345603928890446652}
+  _priceAfterDiscount: {fileID: 1345603927943329845}
 --- !u!1 &1345603927863154194
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,7 +453,7 @@ GameObject:
   - component: {fileID: 1345603927943329844}
   - component: {fileID: 1345603927943329845}
   m_Layer: 5
-  m_Name: CurrentPrice_text
+  m_Name: AfterDiscountPrice_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -511,8 +533,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -947,7 +969,7 @@ GameObject:
   - component: {fileID: 1345603928890446655}
   - component: {fileID: 1345603928890446652}
   m_Layer: 5
-  m_Name: PreviousPrice_text (1)
+  m_Name: BeforeDiscountPrice_text (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1027,8 +1049,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1237,8 +1259,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
