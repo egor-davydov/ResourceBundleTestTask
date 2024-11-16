@@ -1,7 +1,20 @@
 {
   "dependencies": {
+    "com.unity.2d.sprite": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {}
+    },
     "com.unity.collab-proxy": {
       "version": "2.0.4",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.device-simulator": {
+      "version": "3.1.0-preview",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -64,9 +77,9 @@
       "depth": 0,
       "source": "registry",
       "dependencies": {
+        "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.director": "1.0.0",
         "com.unity.modules.animation": "1.0.0",
-        "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.particlesystem": "1.0.0"
       },
       "url": "https://packages.unity.com"
@@ -79,6 +92,13 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
+    },
+    "studio.beardy.grid-layout-group": {
+      "version": "git@github.com:mrbeardy/BeardyGridLayout.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "8b1d7f44366b24df55dae32c674cf70adc6d04b7"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
