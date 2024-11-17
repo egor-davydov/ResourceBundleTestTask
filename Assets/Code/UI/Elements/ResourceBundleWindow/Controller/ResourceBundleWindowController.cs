@@ -32,7 +32,7 @@ namespace Code.UI.Elements.ResourceBundleWindow.Controller
       view.SetupItems(config.Items);
       Model.SetupPrice(config.Price, config.DiscountPercent);
     }
-
+    
     public override void BuyBundle()
     {
       Debug.Log("OnBuyButtonClick");

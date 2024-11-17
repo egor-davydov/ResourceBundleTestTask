@@ -15,3 +15,5 @@ MonoBehaviour:
   <Configs>k__BackingField:
   - <Name>k__BackingField: start
     <Icon>k__BackingField: {fileID: 21300000, guid: 0d17522dfa81d4744acac75ad94d5608, type: 3}
+  - <Name>k__BackingField: wood_build
+    <Icon>k__BackingField: {fileID: 21300000, guid: 5d3a03cdb2b0b0340bbec6ae85a08c0d, type: 3}

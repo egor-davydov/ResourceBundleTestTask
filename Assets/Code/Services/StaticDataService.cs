@@ -19,7 +19,8 @@ namespace Code.Services
 
     public void Initialize()
     {
-      _resourceBundleConfigs = Resources.Load<ResourceBundlesStaticData>(ResourceBundlesPath).ResourceBundleConfigs.ToDictionary(config => config.ResourceBundleType);
+      ResourceBundleConfig[] resourceBundleConfigs = Resources.Load<ResourceBundlesStaticData>(ResourceBundlesPath).ResourceBundleConfigs;
+      _resourceBundleConfigs = resourceBundleConfigs.ToDictionary(config => config.ResourceBundleType);
       _items = Resources.Load<ItemsStaticData>(ItemsPath).ItemConfigs.ToDictionary(config => config.Name);
       _resourceBundleIcons = Resources.Load<ResourceBundleIconsData>(ResourceBundleIconsPath).Configs.ToDictionary(config => config.Name);
     }

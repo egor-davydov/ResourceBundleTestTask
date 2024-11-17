@@ -1,6 +1,4 @@
-﻿using System.Globalization;
-using Code.Services;
-using Code.UI;
+﻿using Code.Services;
 using Code.UI.Elements;
 using Code.UI.Services;
 using Code.UI.Services.Factories;
@@ -11,7 +9,8 @@ namespace Code.Infrastructure
   public class Bootstrap : MonoBehaviour
   {
     [SerializeField] private Transform _uiRoot;
-    [SerializeField] private OpenResourceBundleWindowButton _openResourceBundleWindowButton;
+    [SerializeField] private OpenResourceBundleWindowButton _openStarterPack;
+    [SerializeField] private OpenResourceBundleWindowButton _openWoodBundle;
     private void Awake()
     {
       var uiRootProvider = new UIRootProvider
@@ -23,7 +22,8 @@ namespace Code.Infrastructure
       staticDataService.Initialize();
       var uiFactory = new UIFactory(assetProvider,staticDataService,uiRootProvider);
       
-      _openResourceBundleWindowButton.Construct(uiFactory);
+      _openStarterPack.Construct(uiFactory);
+      _openWoodBundle.Construct(uiFactory);
     }
   }
 }

@@ -22,6 +22,7 @@ namespace Code.UI.Elements.ResourceBundleWindow.View
     [SerializeField] private TextMeshProUGUI _priceBeforeDiscount;
     [SerializeField] private TextMeshProUGUI _priceAfterDiscount;
     [SerializeField] private Button _buyButton;
+    [SerializeField] private Button _closeButton;
 
     private UIFactory _uiFactory;
     private StaticDataService _staticDataService;
@@ -37,7 +38,11 @@ namespace Code.UI.Elements.ResourceBundleWindow.View
     private void Awake()
     {
       _buyButton.onClick.AddListener(() => OnBuy?.Invoke());
+      _closeButton.onClick.AddListener(CloseWindow);
     }
+
+    private void CloseWindow() => 
+      Destroy(gameObject);
 
     public void SetupTitleAndDescription(string titleText, string description)
     {
