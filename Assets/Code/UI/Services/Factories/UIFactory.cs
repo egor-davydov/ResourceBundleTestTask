@@ -3,6 +3,9 @@ using Code.Services;
 using Code.StaticData.Item;
 using Code.StaticData.ResourceBundle;
 using Code.UI.Elements;
+using Code.UI.Elements.ResourceBundleWindow.Controller;
+using Code.UI.Elements.ResourceBundleWindow.Model;
+using Code.UI.Elements.ResourceBundleWindow.View;
 using UnityEngine;
 
 namespace Code.UI.Services.Factories
@@ -20,14 +23,17 @@ namespace Code.UI.Services.Factories
       _uiRootProvider = uiRootProvider;
     }
 
-    public ResourceBundleWindow CreateResourceBundleWindow(ResourceBundleType resourceBundleType)
+    public ResourceBundleWindowUnityView CreateResourceBundleWindow(ResourceBundleType resourceBundleType)
     {
       ResourceBundleConfig config = _staticDataService.ForResourceBundle(resourceBundleType);
-      var resourceBundleWindowPrefab = _assetProvider.Load<ResourceBundleWindow>(AssetPath.ResourceBundleWindow);
-      ResourceBundleWindow resourceBundleWindow = Object.Instantiate(resourceBundleWindowPrefab, _uiRootProvider.UIRoot);
-      resourceBundleWindow.Construct(this);
-      resourceBundleWindow.Initialize(config, _staticDataService.ForResourceBundleIcon(config.BundleIconName).Icon);
-      return resourceBundleWindow;
+      var resourceBundleWindowPrefab = _assetProvider.Load<ResourceBundleWindowUnityView>(AssetPath.ResourceBundleWindow);
+      ResourceBundleWindowUnityView view = Object.Instantiate(resourceBundleWindowPrefab, _uiRootProvider.UIRoot);
+      view.Construct(this, _staticDataService);
+      var model = new ResourceBundleWindowMarketingModel(view);
+      var controller = new ResourceBundleWindowUnityController(model);
+      controller.Initialize(config);
+
+      return view;
     }
 
     public Item CreateItem(ItemData itemData, Transform parent)

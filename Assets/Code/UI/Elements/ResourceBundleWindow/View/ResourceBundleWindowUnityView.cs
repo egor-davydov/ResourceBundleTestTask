@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Globalization;
+using Code.Services;
 using Code.StaticData.Item;
-using Code.StaticData.ResourceBundle;
 using Code.UI.Services.Factories;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code.UI.Elements
+namespace Code.UI.Elements.ResourceBundleWindow.View
 {
-  public class ResourceBundleWindow : MonoBehaviour
+  public class ResourceBundleWindowUnityView : MonoBehaviour, IResourceBundleWindowView
   {
     [SerializeField] private TextMeshProUGUI _title;
     [SerializeField] private TextMeshProUGUI _description;
@@ -21,37 +21,42 @@ namespace Code.UI.Elements
     [SerializeField] private TextMeshProUGUI _discount;
     [SerializeField] private TextMeshProUGUI _priceBeforeDiscount;
     [SerializeField] private TextMeshProUGUI _priceAfterDiscount;
+    [SerializeField] private Button _buyButton;
 
     private UIFactory _uiFactory;
+    private StaticDataService _staticDataService;
 
-    public void Construct(UIFactory uiFactory)
+    public void Construct(UIFactory uiFactory, StaticDataService staticDataService)
     {
+      _staticDataService = staticDataService;
       _uiFactory = uiFactory;
     }
 
-    public void Initialize(ResourceBundleConfig config, Sprite icon)
+    public event Action OnBuy;
+
+    private void Awake()
     {
-      _title.text = config.TitleText;
-      _description.text = config.DescriptionText;
-      SetupItems(config.Items);
-      SetupIcon(icon);
-      SetupPrice(config.Price, config.DiscountPercent);
+      _buyButton.onClick.AddListener(() => OnBuy?.Invoke());
     }
 
-    private void SetupItems(ItemData[] items)
+    public void SetupTitleAndDescription(string titleText, string description)
+    {
+      _title.text = titleText;
+      _description.text = description;
+    }
+    public void SetupItems(ItemData[] items)
     {
       foreach (ItemData itemData in items)
         _uiFactory.CreateItem(itemData, _itemsContainer);
     }
 
-    private void SetupIcon(Sprite icon)
+    public void SetupIcon(string iconName)
     {
-      _iconImage.sprite = icon;
+      _iconImage.sprite = _staticDataService.ForResourceBundleIcon(iconName).Icon;
     }
 
-    private void SetupPrice(float price, int discountPercent)
+    public void SetupPrice(float price, float priceWithDiscount, int discountPercent, bool discounted)
     {
-      bool discounted = discountPercent != 0;
       WithDiscount(discounted);
       var priceText = GetPriceText(price);
       if (!discounted)
@@ -61,23 +66,15 @@ namespace Code.UI.Elements
       else
       {
         _discount.text = $"-{discountPercent}%";
-        
+
         _priceBeforeDiscount.text = priceText;
-        var priceWithDiscount = CalculatePriceWithDiscount(price, discountPercent);
         _priceAfterDiscount.text = GetPriceText(priceWithDiscount);
       }
     }
 
-    private float CalculatePriceWithDiscount(float price, int discountPercent)
-    {
-      var priceWithDiscount = (float)Math.Round(price - price / 100 * discountPercent, 1);
-      priceWithDiscount -= 0.01f;
-      return priceWithDiscount;
-    }
-
     private string GetPriceText(float price) =>
       $"${price.ToString(CultureInfo.CurrentCulture)}";
-
+    
     private void WithDiscount(bool discounted)
     {
       _withDiscountObject.SetActive(discounted);

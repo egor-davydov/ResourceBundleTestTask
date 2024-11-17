@@ -8,13 +8,14 @@ namespace Code.UI.Elements
   {
     [SerializeField] private Button _button;
     [SerializeField] private ResourceBundleType _resourceBundleType;
+    
     private UIFactory _uiFactory;
 
     public void Construct(UIFactory uiFactory)
     {
       _uiFactory = uiFactory;
     }
-    
+
     private void Awake()
     {
       _button.onClick.AddListener(OnButtonClick);

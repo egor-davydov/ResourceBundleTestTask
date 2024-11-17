@@ -360,7 +360,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1345603927735261744}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13cc3ce03a1d4985808fd9947a2c7c80, type: 3}
+  m_Script: {fileID: 11500000, guid: 8bb732f4fa024e33a4696a281e450bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _title: {fileID: 1345603929315818314}
@@ -373,6 +373,7 @@ MonoBehaviour:
   _discount: {fileID: 1345603929281026426}
   _priceBeforeDiscount: {fileID: 1345603928890446652}
   _priceAfterDiscount: {fileID: 1345603927943329845}
+  _buyButton: {fileID: 1345603928449569104}
 --- !u!1 &1345603927863154194
 GameObject:
   m_ObjectHideFlags: 0
